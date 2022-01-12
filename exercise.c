@@ -56,6 +56,7 @@ int reverse_array(int a[], int size) {
     a[i] = a[size-1-i];
     a[size-1-i] = temp;
   }
+  return SUCC;
 
  
 }
@@ -144,15 +145,11 @@ int match_action(struct key_action map[], char *cmd, int arg){
   // printf(("String is %s \n" , map[0].cmd));
   int i = 0;
   while (map[i].cmd != 0){
-  
-   
     if (strcmp(map[i].cmd, cmd) == 0){
       arg = map[i].func(arg);
     }
-
     i++;
   }
-  // printf("%d", arg);
   return arg;
 }
 
