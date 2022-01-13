@@ -149,7 +149,7 @@ int match_action(struct key_action map[], char *cmd, int arg){
   int i = 0;
   while (map[i].cmd != 0 && map[i].func != 0){
     if (strcmp(map[i].cmd, cmd) == 0){
-      arg = (*map[i].func)(arg);
+      arg = (map[i].func)(arg);
     }
     i++;
   }
