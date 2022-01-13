@@ -90,11 +90,11 @@ int add3(int x){
  */
 int match_add(char *cmd, int arg){
   if (strcmp(cmd, "add1") == 0){
-    arg += 1;
+    return add1(arg);
   } else if (strcmp(cmd, "add2") == 0){
-    arg += 2;
+    return add2(arg);
   } else if (strcmp(cmd, "add3") == 0){
-    arg += 3;
+    return add3(arg);
   }
  
   return arg;
@@ -143,10 +143,13 @@ int set_key_action(struct key_action *rec, char *cmd, int (*f)()){
 
 int match_action(struct key_action map[], char *cmd, int arg){
   // printf(("String is %s \n" , map[0].cmd));
+  if(map == NULL || cmd == NULL){
+    return arg;
+  }
   int i = 0;
-  while (map[i].cmd != 0){
+  while (map[i].cmd != 0 && map[i].func != 0){
     if (strcmp(map[i].cmd, cmd) == 0){
-      arg = map[i].func(arg);
+      arg = (*map[i].func)(arg);
     }
     i++;
   }

@@ -42,7 +42,11 @@ char *reverse_array_test(void) {
   int arr[5] = {1 ,2 ,3 ,4 ,5};
   int array[5] = {5,4,3,2,1};
 
+  int arr2[6] = {1,2,3,4,5,6};
+  int array2[6] = {6,5,4,3,2,1};
+
   reverse_array(arr, 5);
+  reverse_array(arr2,6);
   // for(int i = 0; i < 5; i++){
   //   printf("%d\n", arr[i]);
   // }
